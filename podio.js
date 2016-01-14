@@ -5,7 +5,7 @@ module.exports = (function () {
     podio = new Podio({
         authType    : 'server',
         clientId    : process.env.podioClientId,
-        clientSecret: process.env.podioClientSecret
+        clientSecret: process.env.podioSecret
     });
 
     var action = function(request, response) {
