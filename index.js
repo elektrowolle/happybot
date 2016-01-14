@@ -22,7 +22,7 @@ var app = express();
 
 var Slack = require('slack-client');
 
-var SlackToken   = process.env.SlackToken;
+var slackToken   = process.env.SlackToken;
 var autoReconnect = true;
 var autoMark      = true;
 
