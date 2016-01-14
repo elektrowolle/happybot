@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var slack = require('./slack.js');
+// var slack = require('./slack.js');
 
 // app.set('port', (process.env.PORT || 5000));
 //
