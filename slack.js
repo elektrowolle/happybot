@@ -20,7 +20,7 @@ slack.on('message', function (message) {
   console.log("user: " + user.name);
   console.log("channel: " + channel.name);
 
-  var message;
+  //var message;
   //message = new slack.Message();
   channel.send("Hi " + name);
 
