@@ -1,5 +1,6 @@
 var Slack = require('slack-client');
 
+modules.export = (function (){
 var slackToken   = process.env.SlackToken;
 var autoReconnect = true;
 var autoMark      = true;
@@ -21,3 +22,5 @@ slack.on('error', function (err) {
 
 
 slack.login();
+
+});
