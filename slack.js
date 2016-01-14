@@ -22,7 +22,7 @@ slack.on('message', function (message) {
 
   //var message;
   //message = new slack.Message();
-  channel.send("Hi " + name);
+  channel.send("Hi " + user.name);
 
 });
 
