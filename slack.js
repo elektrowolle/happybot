@@ -17,8 +17,8 @@ slack.on('message', function (message) {
   var channel = slack.getChannelGroupOrDMByID(message.channel);
   var user = slack.getUserByID(message.user);
 
-  console.log("user: " + user);
-  console.log("channel: " + channel);
+  console.log("user: " + user.name);
+  console.log("channel: " + channel.name);
 });
 
 slack.on('error', function (err) {
