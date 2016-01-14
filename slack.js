@@ -5,7 +5,7 @@ var slackToken   = process.env.SlackToken;
 var autoReconnect = true;
 var autoMark      = true;
 
-slack = new Slack(slackToken, autoReconnect, autoMark)
+var slack = new Slack(slackToken, autoReconnect, autoMark)
 
 
 slack.on('open', function (){
@@ -14,6 +14,8 @@ slack.on('open', function (){
 
 slack.on('message', function (message) {
   console.log('Message:' + message);
+  var channel = slack.getChannelGroupOrDMByID(message.channel);
+  var user = slack.getUserByID(message.user);
 });
 
 slack.on('error', function (err) {
