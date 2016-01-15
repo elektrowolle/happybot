@@ -35,7 +35,8 @@ module.exports = function () {
 
     console.log("add happy object");
 
-    var happy = new happy(user.name, message.user, Date.now(), 5);
+    var happy;
+    happy = new happy(user.name, message.user, Date.now(), 5);
     console.log(JSON.stringify(happy));
   });
 
