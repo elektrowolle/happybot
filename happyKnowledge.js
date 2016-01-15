@@ -5,7 +5,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var podio = require('./podio.js');
-var map = {
+var _map = {
     'title': "titel",
     'slackId': "slackId",
     'date': "datum",
@@ -33,14 +33,28 @@ var happyKnowledge = function () {
     _createClass(happyKnowledge, [{
         key: 'write',
         value: function write() {
-            podio.request('post', '/item/', JSON.stringify(this));
+            podio.request('post', '/item/', JSON.stringify(this.map()));
+        }
+    }, {
+        key: 'map',
+        value: function map() {
+            return happyKnowledge.map(this);
         }
     }], [{
         key: 'get',
         value: function get(id, _callback) {
             podio.request('get', '/item/' + id, null, function (responseData) {
-                _callback(new happyKnowledge(responseData[map['title']], responseData[map['slackId']], responseData[map['date']], responseData[map['happydex']]));
+                _callback(new happyKnowledge(responseData[_map['title']], responseData[_map['slackId']], responseData[_map['date']], responseData[_map['happydex']]));
             });
+        }
+    }, {
+        key: 'map',
+        value: function map(knowledge) {
+            var mapped = {};
+            for (var key in _map) {
+                mapped[key] = knowledge[_map[key]];
+            }
+            return mapped;
         }
     }]);
 

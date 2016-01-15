@@ -33,7 +33,19 @@ class happyKnowledge {
     }
 
     write(){
-        podio.request('post', '/item/', JSON.stringify(this));
+        podio.request('post', '/item/', JSON.stringify(this.map()));
+    }
+
+    static map(knowledge){
+        var mapped = {};
+        for(var key in map){
+            mapped[key] = knowledge[map[key]];
+        }
+        return mapped;
+    }
+
+    map(){
+        return happyKnowledge.map(this);
     }
 
 
