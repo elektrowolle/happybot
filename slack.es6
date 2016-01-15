@@ -15,16 +15,18 @@ module.exports = (function () {
 
   var getSlackHooks = function(){
     return slackHooks;
-  }
+  };
 
   slack.on('open', function () {
     console.log("Connected to " + slack.team.name + " as " + slack.self.name);
   });
 
   slack.on('message', function (message) {
+    var user;
+    var channel;
     console.log('Message:' + message);
-    var channel = slack.getChannelGroupOrDMByID(message.channel);
-    var user    = slack.getUserByID(message.user);
+    channel = slack.getChannelGroupOrDMByID(message.channel);
+    user    = slack.getUserByID(message.user);
 
     console.log("user: " + user.name);
     console.log("channel: " + channel.name);
@@ -41,7 +43,7 @@ module.exports = (function () {
       }else{
         console.log('not sure what to do');
         channel.send('Hi! How can I help you?');
-        channel.send('Shall we talk about ' + JSON.stringify(getSlackHooks()));
+        channel.send('Shall we talk about ' + getSlackHooks());
       }
     }
   });
