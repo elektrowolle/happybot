@@ -29,7 +29,7 @@ module.exports = (function () {
       slackConversation.process(message);
     }else {
 
-      var hook = slackHooks[message.message];
+      var hook = slackHooks[message.text];
       if (hook != undefined) {
         console.log('follow hook');
         hook({'message': message, 'channel': channel, 'user': user});
