@@ -61,4 +61,4 @@ module.export = function () {
     return happyKnowledge;
 }();
 
-//# sourceMappingURL=happyKnowledge.js.map
+//# sourceMappingURL=HappyKnowledge.js.map
