@@ -1,16 +1,25 @@
 module.exports = class SlackConversation{
-    constructor(slack) {
+    constructor(slack, channel, user) {
         this.slack      = slack;
         this.conditions = [];
         this.history    = [];
+        this.channel    = this.slack.getChannelByID(channel);
+        this.user       = this.slack.getUserByID(user);
+
+
+
+        this.onStart();
+    }
+
+    onStart(){
+        channel.send('Hi! Nice to talk to you' + user.name);
     }
 
 
     process(message){
         this.history.push(message);
-        var channel = this.slack.getChannelByID(message.channel);
-        var user    = this.slack.getUserByID(message.user);
-        var message = message.text;
+        var $channel = this.slack.getChannelByID(message.channel);
+        var message  = message.text;
 
         channel.send(JSON.stringify(this.history));
     }

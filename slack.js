@@ -28,7 +28,7 @@ module.exports = function () {
 
     if (slackConversation[message.user] != undefined) {
       console.log('continue conversation');
-      slackConversation.process(message);
+      slackConversation[message.user].process(message);
     } else {
 
       var hook = slackHooks[message.text];
@@ -38,12 +38,13 @@ module.exports = function () {
       } else {
         console.log('not sure what to do');
         channel.send('Hi! How can I help you?');
+        channel.send('Shall we talk about ' + JSON.stringify(slackConversation));
       }
     }
   });
 
   slackHooks['Hi'] = function (info) {
-    slackConversation[info.message.user] = new Conversation();
+    slackConversation[info.message.user] = new Conversation(slack, info.channel, info.user);
   };
 
   slack.on('error', function (err) {
