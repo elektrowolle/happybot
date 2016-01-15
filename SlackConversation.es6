@@ -18,7 +18,7 @@ module.exports = class SlackConversation{
         this.history.push(_message);
         var _channel = _message.channel;
         var message  = _message.text;
-        this.onMessage(_channel);
+        this.onMessage(message, _channel);
     }
 
     onMessage(message, _channel){
