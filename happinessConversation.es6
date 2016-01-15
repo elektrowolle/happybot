@@ -18,13 +18,13 @@ module.exports = class HappinessConversation extends SlackConversation{
             reply[4] = "good good!";
             reply[5] = "please share your happiness!";
 
-            _channel.send(reply[happydex]);
-            _channel.send("Thank you for your reply.");
+            this.channel.send(reply[happydex]);
+            this.channel.send("Thank you for your reply.");
 
             this.done = true;
 
         }else{
-            _channel.send("sorry... I didn;t got it.");
+            this.channel.send("sorry... I didn;t got it.");
             this.onStart();
         }
     }

@@ -43,7 +43,7 @@ module.exports = (function () {
       }else{
         console.log('not sure what to do');
         channel.send('Hi! How can I help you?');
-        channel.send('Shall we talk about ' + getSlackHooks());
+        channel.send('Shall we talk about ' + JSON.stringify(getSlackHooks()));
       }
     }
   });
