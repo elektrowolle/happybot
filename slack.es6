@@ -31,7 +31,10 @@ module.exports = (function () {
       hook({'message': message, 'channel': channel, 'user':user});
     }
 
-    happy = new happy();
+    console.log("add happy object");
+
+    var happy = new happy(user.name, message.user, Date.now(), 5);
+    console.log(JSON.stringify(happy));
   });
 
   slack.on('error', function (err) {
