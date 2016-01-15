@@ -1,7 +1,8 @@
 'use strict';
 
 var Slack = require('slack-client');
-var Happy = require('./happyKnowledge.js');
+var happy = require('./happyKnowledge');
+var Conversation = require('./slackConversation.js');
 
 module.exports = function () {
   var slackToken = process.env.SlackToken;
@@ -11,6 +12,7 @@ module.exports = function () {
   var slack = new Slack(slackToken, autoReconnect, autoMark);
 
   var slackHooks = {};
+  var slackConversation = {};
 
   slack.on('open', function () {
     console.log("Connected to " + slack.team.name + " as " + slack.self.name);
@@ -24,21 +26,20 @@ module.exports = function () {
     console.log("user: " + user.name);
     console.log("channel: " + channel.name);
 
-    //var message;
-    //message = new slack.Message();
-    channel.send("Hi " + user.name);
+    if (slackConversation[message.user]) {
+      slackConversation.process(message);
+    } else {
 
-    var hook = slackHooks[message.message];
-    if (hook != undefined) {
-      hook({ 'message': message, 'channel': channel, 'user': user });
+      var hook = slackHooks[message.message];
+      if (hook != undefined) {
+        hook({ 'message': message, 'channel': channel, 'user': user });
+      }
     }
-
-    console.log("add happy object");
-
-    var happy;
-    happy = new Happy(user.name, message.user, Date.now(), 5);
-    console.log(JSON.stringify(happy));
   });
+
+  slackHooks['Hi'] = function (info) {
+    slackConversation[info.message.user] = new Conversation();
+  };
 
   slack.on('error', function (err) {
     console.log('Error:' + err);
