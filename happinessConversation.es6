@@ -7,9 +7,9 @@ module.exports = class HappinessConversation extends SlackConversation{
     }
 
     onMessage(message, _channel){
-        console.log(message);
+        console.log(message.text);
         console.log(_channel);
-        var happydex = parseInt(message);
+        var happydex = parseInt(message.text);
         if(!isNaN(happydex) && happydex < 5 && happydex >= 1){
             var reply = [];
             reply[1] = "hmm...";
@@ -24,7 +24,7 @@ module.exports = class HappinessConversation extends SlackConversation{
             this.done = true;
 
         }else{
-            consle.log(happydex);
+            console.log(happydex);
             this.channel.send("sorry... I didn;t got it.");
             this.onStart();
         }
