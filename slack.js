@@ -1,7 +1,7 @@
 'use strict';
 
 var Slack = require('slack-client');
-var happy = require('./happyKnowledge');
+var happy = require('./happyKnowledge.js');
 
 module.exports = function () {
   var slackToken = process.env.SlackToken;
