@@ -8,7 +8,7 @@ var map = {
     'happydex' : "happydex",
 };
 
-module.export = class happyKnowledge {
+module.export = class HappyKnowledge {
 
 
     static getAppId(){return env.podioHappyKnowledgeAppId;}
@@ -23,7 +23,7 @@ module.export = class happyKnowledge {
 
     static get(id, _callback){
         podio.request('get', '/item/' + id, null, (responseData)=>{
-            _callback(new happyKnowledge(
+            _callback(new HappyKnowledge(
                 responseData[map['title']   ],
                 responseData[map['slackId'] ],
                 responseData[map['date']    ],
@@ -45,7 +45,7 @@ module.export = class happyKnowledge {
     }
 
     map(){
-        return happyKnowledge.map(this);
+        return HappyKnowledge.map(this);
     }
 
 

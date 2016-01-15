@@ -13,15 +13,15 @@ var _map = {
 };
 
 module.export = function () {
-    _createClass(happyKnowledge, null, [{
+    _createClass(HappyKnowledge, null, [{
         key: 'getAppId',
         value: function getAppId() {
             return env.podioHappyKnowledgeAppId;
         }
     }]);
 
-    function happyKnowledge(title, slackId, date, happydex, id) {
-        _classCallCheck(this, happyKnowledge);
+    function HappyKnowledge(title, slackId, date, happydex, id) {
+        _classCallCheck(this, HappyKnowledge);
 
         this.id = id;
         this.title = title;
@@ -30,7 +30,7 @@ module.export = function () {
         this.happydex = happydex;
     }
 
-    _createClass(happyKnowledge, [{
+    _createClass(HappyKnowledge, [{
         key: 'write',
         value: function write() {
             podio.request('post', '/item/', JSON.stringify(this.map()));
@@ -38,13 +38,13 @@ module.export = function () {
     }, {
         key: 'map',
         value: function map() {
-            return happyKnowledge.map(this);
+            return HappyKnowledge.map(this);
         }
     }], [{
         key: 'get',
         value: function get(id, _callback) {
             podio.request('get', '/item/' + id, null, function (responseData) {
-                _callback(new happyKnowledge(responseData[_map['title']], responseData[_map['slackId']], responseData[_map['date']], responseData[_map['happydex']]));
+                _callback(new HappyKnowledge(responseData[_map['title']], responseData[_map['slackId']], responseData[_map['date']], responseData[_map['happydex']]));
             });
         }
     }, {
@@ -58,7 +58,7 @@ module.export = function () {
         }
     }]);
 
-    return happyKnowledge;
+    return HappyKnowledge;
 }();
 
 //# sourceMappingURL=HappyKnowledge.js.map
