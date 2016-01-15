@@ -11,8 +11,8 @@ module.exports = function () {
         this.slack = slack;
         this.conditions = [];
         this.history = [];
-        this.channel = this.slack.getChannelByID(channel);
-        this.user = this.slack.getUserByID(user);
+        this.channel = channel;
+        this.user = user;
 
         this.onStart();
     }
