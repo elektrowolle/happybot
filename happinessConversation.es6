@@ -1,5 +1,5 @@
 import SlackConversation from './SlackConversation.js';
-import Knowledge from './HappyKnowledge.js';
+import HappyKnowledge from './HappyKnowledge.js';
 
 module.exports = class HappinessConversation extends SlackConversation{
 
@@ -22,7 +22,7 @@ module.exports = class HappinessConversation extends SlackConversation{
             this.channel.send(reply[happydex]);
             this.channel.send("Thank you for your reply.");
 
-            var knowledge = new Knowledge(
+            var knowledge = new HappyKnowledge(
                 this.user.name,
                 this.user.id,
                 Date.now().toString(),

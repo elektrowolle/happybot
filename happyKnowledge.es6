@@ -8,7 +8,7 @@ var map = {
     'happydex' : "happydex",
 };
 
-class happyKnowledge {
+module.export = class happyKnowledge {
 
 
     static getAppId(){return env.podioHappyKnowledgeAppId;}
@@ -49,13 +49,4 @@ class happyKnowledge {
     }
 
 
-}
-
-module.exports = (function () {
-
-
-    return happyKnowledge;
-
-
-
-}());
+};
