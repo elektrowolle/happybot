@@ -20,7 +20,7 @@ module.exports = function () {
     _createClass(SlackConversation, [{
         key: 'onStart',
         value: function onStart() {
-            channel.send('Hi! Nice to talk to you' + user.name);
+            this.channel.send('Hi! Nice to talk to you' + this.user.name);
         }
     }, {
         key: 'process',

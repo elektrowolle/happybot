@@ -12,7 +12,7 @@ module.exports = class SlackConversation{
     }
 
     onStart(){
-        channel.send('Hi! Nice to talk to you' + user.name);
+        this.channel.send('Hi! Nice to talk to you' + this.user.name);
     }
 
 
