@@ -47,6 +47,7 @@ module.exports = function (_SlackConversation) {
 
                 this.done = true;
             } else {
+                consle.log(happydex);
                 this.channel.send("sorry... I didn;t got it.");
                 this.onStart();
             }

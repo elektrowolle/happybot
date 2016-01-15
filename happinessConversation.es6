@@ -24,6 +24,7 @@ module.exports = class HappinessConversation extends SlackConversation{
             this.done = true;
 
         }else{
+            consle.log(happydex);
             this.channel.send("sorry... I didn;t got it.");
             this.onStart();
         }
