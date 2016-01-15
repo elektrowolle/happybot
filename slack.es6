@@ -13,6 +13,10 @@ module.exports = (function () {
   var slackHooks        = {};
   var slackConversation = {};
 
+  var getSlackHooks = function(){
+    return slackHooks;
+  }
+
   slack.on('open', function () {
     console.log("Connected to " + slack.team.name + " as " + slack.self.name);
   });
@@ -37,7 +41,7 @@ module.exports = (function () {
       }else{
         console.log('not sure what to do');
         channel.send('Hi! How can I help you?');
-        channel.send('Shall we talk about ' + JSON.stringify(slackHooks));
+        channel.send('Shall we talk about ' + JSON.stringify(getSlackHooks()));
       }
     }
   });
