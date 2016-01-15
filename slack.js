@@ -1,7 +1,7 @@
 'use strict';
 
 var Slack = require('slack-client');
-var happy = require('./happyKnowledge');
+var happy = require('./HappyKnowledge');
 var Conversation = require('./SlackConversation.js');
 var HappinessConversation = require('./HappinessConversation.js');
 
@@ -36,6 +36,9 @@ module.exports = function () {
     if (slackConversation[message.user] != undefined) {
       console.log('continue conversation');
       slackConversation[message.user].process(message);
+      if (conversation.done) {
+        delete slackConversation[message.user];
+      }
     } else {
 
       var hook = slackHooks[message.text];

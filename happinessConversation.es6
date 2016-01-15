@@ -1,4 +1,5 @@
 import SlackConversation from './SlackConversation.js';
+import Knowledge from './HappyKnowledge.js';
 
 module.exports = class HappinessConversation extends SlackConversation{
 
@@ -10,7 +11,7 @@ module.exports = class HappinessConversation extends SlackConversation{
         console.log(message);
         console.log(_channel);
         var happydex = parseInt(message);
-        if(!isNaN(happydex) && happydex < 5 && happydex >= 1){
+        if(!isNaN(happydex) && happydex <= 5 && happydex >= 1){
             var reply = [];
             reply[1] = "hmm...";
             reply[2] = "is it me?";
@@ -20,6 +21,14 @@ module.exports = class HappinessConversation extends SlackConversation{
 
             this.channel.send(reply[happydex]);
             this.channel.send("Thank you for your reply.");
+
+            var knowledge = new Knowledge(
+                this.user.name,
+                this.user.id,
+                Date.now().toString(),
+                happydex
+            );
+            knowledge.write();
 
             this.done = true;
 
