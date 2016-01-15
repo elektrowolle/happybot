@@ -6,7 +6,7 @@ module.exports = class HappinessConversation extends SlackConversation{
         this.channel.send("Let's talk about your happiness. How Happy are you [1 - 5]?");
     }
 
-    onMessage(message, $channel){
+    onMessage(message, _channel){
         var happydex = parseInt(message);
         if(!isNaN(happydex) && happydex < 5 && happydex >= 1){
             var reply = [];
@@ -16,13 +16,13 @@ module.exports = class HappinessConversation extends SlackConversation{
             reply[4] = "good good!";
             reply[5] = "please share your happiness!";
 
-            $channel.send(reply[happydex]);
-            $channel.send("Thank you for your reply.");
+            _channel.send(reply[happydex]);
+            _channel.send("Thank you for your reply.");
 
             this.done = true;
 
         }else{
-            $channel.send("sorry... I didn;t got it.");
+            _channel.send("sorry... I didn;t got it.");
             this.onStart();
         }
     }

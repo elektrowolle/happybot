@@ -30,7 +30,7 @@ module.exports = function (_SlackConversation) {
         }
     }, {
         key: "onMessage",
-        value: function onMessage(message, $channel) {
+        value: function onMessage(message, _channel) {
             var happydex = parseInt(message);
             if (!isNaN(happydex) && happydex < 5 && happydex >= 1) {
                 var reply = [];
@@ -40,12 +40,12 @@ module.exports = function (_SlackConversation) {
                 reply[4] = "good good!";
                 reply[5] = "please share your happiness!";
 
-                $channel.send(reply[happydex]);
-                $channel.send("Thank you for your reply.");
+                _channel.send(reply[happydex]);
+                _channel.send("Thank you for your reply.");
 
                 this.done = true;
             } else {
-                $channel.send("sorry... I didn;t got it.");
+                _channel.send("sorry... I didn;t got it.");
                 this.onStart();
             }
         }

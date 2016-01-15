@@ -16,12 +16,12 @@ module.exports = class SlackConversation{
 
     process(_message){
         this.history.push(_message);
-        var $channel = this.slack.getChannelByID(_message.channel);
+        var _channel = this.slack.getChannelByID(_message.channel);
         var message  = _message.text;
-        this.onMessage($channel);
+        this.onMessage(_channel);
     }
 
-    onMessage(message, $channel){
-        $channel.send(JSON.stringify(this.history));
+    onMessage(message, _channel){
+        _channel.send(JSON.stringify(this.history));
     }
 };
