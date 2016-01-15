@@ -24,15 +24,19 @@ module.exports = (function () {
     console.log("user: " + user.name);
     console.log("channel: " + channel.name);
 
-    if(slackConversation[message.user]){
+    if(slackConversation[message.user] != undefined){
+      console.log('continue conversation');
       slackConversation.process(message);
     }else {
 
       var hook = slackHooks[message.message];
       if (hook != undefined) {
+        console.log('follow hook');
         hook({'message': message, 'channel': channel, 'user': user});
+      }else{
+        console.log('not sure what to do');
+        channel.send('Hi! How can I help you?');
       }
-
     }
   });
 
