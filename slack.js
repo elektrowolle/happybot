@@ -1,7 +1,7 @@
 'use strict';
 
 var Slack = require('slack-client');
-var happy = require('./HappyKnowledge');
+//var happy = require('./HappyKnowledge');
 var Conversation = require('./SlackConversation.js');
 var HappinessConversation = require('./HappinessConversation.js');
 
