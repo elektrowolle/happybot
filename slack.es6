@@ -1,6 +1,7 @@
 var Slack = require('slack-client');
 var happy = require('./happyKnowledge');
 var Conversation = require('./SlackConversation.js');
+var HappinessConversation = require('./happinessConversation.js');
 
 module.exports = (function () {
   var slackToken = process.env.SlackToken;
@@ -36,13 +37,17 @@ module.exports = (function () {
       }else{
         console.log('not sure what to do');
         channel.send('Hi! How can I help you?');
-        channel.send('Shall we talk about ' + JSON.stringify(slackConversation));
+        channel.send('Shall we talk about ' + JSON.stringify(slackHooks));
       }
     }
   });
 
   slackHooks['Hi'] = ((info)=>{
     slackConversation[info.message.user] = new Conversation(slack, info.channel, info.user);
+  });
+
+  slackHooks['Happy'] = ((info)=>{
+    slackConversation[info.message.user] = new HappinessConversation(slack, info.channel, info.user);
   });
 
   slack.on('error', function (err) {

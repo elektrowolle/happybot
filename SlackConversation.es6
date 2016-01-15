@@ -5,9 +5,7 @@ module.exports = class SlackConversation{
         this.history    = [];
         this.channel    = channel;
         this.user       = user;
-
-
-
+        this.done       = false;
         this.onStart();
     }
 
@@ -16,14 +14,14 @@ module.exports = class SlackConversation{
     }
 
 
-    process(message){
-        this.history.push(message);
-        var $channel = this.slack.getChannelByID(message.channel);
-        var message  = message.text;
-        this.onMessage(message);
+    process(_message){
+        this.history.push(_message);
+        var $channel = this.slack.getChannelByID(_message.channel);
+        var message  = _message.text;
+        this.onMessage($channel);
     }
 
-    onMessage(){
-        this.channel.send(JSON.stringify(this.history));
+    onMessage(message, $channel){
+        $channel.send(JSON.stringify(this.history));
     }
 };

@@ -13,7 +13,7 @@ module.exports = function () {
         this.history = [];
         this.channel = channel;
         this.user = user;
-
+        this.done = false;
         this.onStart();
     }
 
@@ -24,16 +24,16 @@ module.exports = function () {
         }
     }, {
         key: 'process',
-        value: function process(message) {
-            this.history.push(message);
-            var $channel = this.slack.getChannelByID(message.channel);
-            var message = message.text;
-            this.onMessage(message);
+        value: function process(_message) {
+            this.history.push(_message);
+            var $channel = this.slack.getChannelByID(_message.channel);
+            var message = _message.text;
+            this.onMessage($channel);
         }
     }, {
         key: 'onMessage',
-        value: function onMessage() {
-            this.channel.send(JSON.stringify(this.history));
+        value: function onMessage(message, $channel) {
+            $channel.send(JSON.stringify(this.history));
         }
     }]);
 
