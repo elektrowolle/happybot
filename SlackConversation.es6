@@ -12,7 +12,7 @@ module.exports = class SlackConversation{
     }
 
     onStart(){
-        this.channel.send('Hi! Nice to talk to you' + this.user.name);
+        this.channel.send('Hi! Nice to talk to you ' + this.user.name);
     }
 
 
@@ -20,7 +20,10 @@ module.exports = class SlackConversation{
         this.history.push(message);
         var $channel = this.slack.getChannelByID(message.channel);
         var message  = message.text;
+        this.onMessage(message);
+    }
 
-        channel.send(JSON.stringify(this.history));
+    onMessage(){
+        this.channel.send(JSON.stringify(this.history));
     }
 };

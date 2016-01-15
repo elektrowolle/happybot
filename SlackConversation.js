@@ -20,7 +20,7 @@ module.exports = function () {
     _createClass(SlackConversation, [{
         key: 'onStart',
         value: function onStart() {
-            this.channel.send('Hi! Nice to talk to you' + this.user.name);
+            this.channel.send('Hi! Nice to talk to you ' + this.user.name);
         }
     }, {
         key: 'process',
@@ -28,8 +28,12 @@ module.exports = function () {
             this.history.push(message);
             var $channel = this.slack.getChannelByID(message.channel);
             var message = message.text;
-
-            channel.send(JSON.stringify(this.history));
+            this.onMessage(message);
+        }
+    }, {
+        key: 'onMessage',
+        value: function onMessage() {
+            this.channel.send(JSON.stringify(this.history));
         }
     }]);
 
