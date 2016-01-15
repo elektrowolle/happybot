@@ -6,7 +6,7 @@ var _SlackConversation2 = require('./SlackConversation.js');
 
 var _SlackConversation3 = _interopRequireDefault(_SlackConversation2);
 
-var _HappyKnowledge = require('./HappyKnowledge');
+var _HappyKnowledge = require('./HappyKnowledge.js');
 
 var _HappyKnowledge2 = _interopRequireDefault(_HappyKnowledge);
 
