@@ -50,6 +50,6 @@ var happyKnowledge = function () {
 module.exports = function () {
 
     return happyKnowledge;
-};
+}();
 
 //# sourceMappingURL=happyKnowledge.js.map
