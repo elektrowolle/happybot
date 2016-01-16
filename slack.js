@@ -36,7 +36,7 @@ module.exports = function () {
     if (slackConversation[message.user] != undefined) {
       console.log('continue conversation');
       slackConversation[message.user].process(message);
-      if (conversation.done) {
+      if (slackConversation[message.user].done) {
         delete slackConversation[message.user];
       }
     } else {
