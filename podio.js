@@ -5,7 +5,7 @@ var Podio = require('podio-js').api;
 var podio = undefined;
 
 module.exports = (function () {
-    if(podio == undefined) {
+    if(podio === undefined) {
         podio = new Podio({
             authType: 'server',
             clientId: process.env.podioClientId,
