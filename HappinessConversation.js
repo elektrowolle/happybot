@@ -49,6 +49,9 @@ module.exports = function (_SlackConversation) {
                 this.channel.send(reply[happydex]);
                 this.channel.send("Thank you for your reply.");
 
+                console.log(_HappyKnowledge2.default);
+                console.log(JSON.stringify(_HappyKnowledge2.default));
+
                 var knowledge = new _HappyKnowledge2.default(this.user.name, this.user.id, Date.now().toString(), happydex);
                 knowledge.write();
 

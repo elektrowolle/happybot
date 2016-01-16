@@ -22,6 +22,9 @@ module.exports = class HappinessConversation extends SlackConversation{
             this.channel.send(reply[happydex]);
             this.channel.send("Thank you for your reply.");
 
+            console.log(HappyKnowledge);
+            console.log(JSON.stringify(HappyKnowledge));
+
             var knowledge = new HappyKnowledge(
                 this.user.name,
                 this.user.id,
