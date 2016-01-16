@@ -38,5 +38,5 @@ module.exports = (function () {
 
     return podio;
 
-});
+}());
 // Your request handler (for example in ExpressJS)
