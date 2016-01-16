@@ -25,14 +25,15 @@ module.exports = function () {
     _createClass(PodioInstance, [{
         key: 'action',
         value: function action(request, response) {
-            var authCode = request.query.code;
-            var errorCode = request.query.error;
+            //var authCode = request.query.code;
+            //var errorCode = request.query.error;
 
             podio.isAuthenticated().then(function () {
                 console.log('podio is connected');
-            }).catch(function (err) {
+                return _request();
+            }).then(response(response)).catch(function (err) {
                 podio.authenticateWithCredentials(process.env.podioUsername, process.env.podioPassword, function () {
-                    // Make API calls here...
+                    this.action(request, response);
                 });
             });
         }
