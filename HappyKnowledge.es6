@@ -39,7 +39,7 @@ module.exports = class HappyKnowledge {
     static map(knowledge){
         var mapped = {};
         for(var key in map){
-            mapped[key] = knowledge[map[key]];
+            mapped[map[key]] = this[key];
         }
         return mapped;
     }

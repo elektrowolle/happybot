@@ -52,7 +52,7 @@ module.exports = function () {
         value: function map(knowledge) {
             var mapped = {};
             for (var key in _map) {
-                mapped[key] = knowledge[_map[key]];
+                mapped[_map[key]] = this[key];
             }
             return mapped;
         }
