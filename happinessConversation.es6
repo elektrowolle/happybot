@@ -1,5 +1,5 @@
 import SlackConversation from './SlackConversation.js';
-var HappyKnowledge = require('./HappyKnowledge.js');
+import HappyKnowledge from './HappyKnowledge.js';
 
 module.exports = class HappinessConversation extends SlackConversation{
 
