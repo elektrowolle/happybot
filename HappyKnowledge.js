@@ -12,7 +12,7 @@ var _map = {
     'happydex': "happydex"
 };
 
-module.export = function () {
+module.exports = function () {
     _createClass(HappyKnowledge, null, [{
         key: 'getAppId',
         value: function getAppId() {
