@@ -33,7 +33,10 @@ module.exports = class HappyKnowledge {
     }
 
     write(){
-        podio.request('post', '/item/', JSON.stringify(this.map()));
+        podio.request('post', '/item/', JSON.stringify(this.map()), ((responseData)=>{
+            console.log(responseData);
+            console.log(JSON.stringify(responseData));
+        }));
     }
 
     static map(knowledge){

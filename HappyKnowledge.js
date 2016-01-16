@@ -33,7 +33,10 @@ module.exports = function () {
     _createClass(HappyKnowledge, [{
         key: 'write',
         value: function write() {
-            podio.request('post', '/item/', JSON.stringify(this.map()));
+            podio.request('post', '/item/', JSON.stringify(this.map()), function (responseData) {
+                console.log(responseData);
+                console.log(JSON.responseData);
+            });
         }
     }, {
         key: 'map',
