@@ -1,6 +1,6 @@
 "use strict";
 
-var podio = require('./podio.js');
+var podio = require('./Podio.js');
 var map = {
     'title'    : "titel",
     'slackId'  : "slackId",
