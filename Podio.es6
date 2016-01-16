@@ -13,6 +13,7 @@ module.exports = class PodioInstance{
                 clientSecret: process.env.podioSecret
             });
         }
+        this.podio = podio;
     }
 
 
