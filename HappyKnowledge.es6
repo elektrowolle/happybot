@@ -22,7 +22,11 @@ module.exports = class HappyKnowledge {
     }
 
     write(){
-        this.fire.set(JSON.stringify(this.getJSON()));
+        this.fire.set(JSON.stringify(this.getJSON()),
+            (response)=>{
+                conole.log(response);
+            }
+        );
     }
 
     getJSON(){

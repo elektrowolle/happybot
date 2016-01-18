@@ -21,7 +21,9 @@ module.exports = function () {
     _createClass(HappyKnowledge, [{
         key: 'write',
         value: function write() {
-            this.fire.set(JSON.stringify(this.getJSON()));
+            this.fire.set(JSON.stringify(this.getJSON()), function (response) {
+                conole.log(response);
+            });
         }
     }, {
         key: 'getJSON',
