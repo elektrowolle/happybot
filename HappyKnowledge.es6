@@ -13,11 +13,13 @@ module.exports = class HappyKnowledge {
         this.slackId     = slackId;
         this.date        = date;
         this.happydex    = happydex;
-        this.fire        = new Firebase(
-            //process.env.firebaseRoot + '/' + this.slackId + '/' + this.date);
-            process.env.firebaseRoot);
 
-        console.log("new Knowledge: " );
+        var fireBaseRefUrl = process.env.firebaseRoot + '/' + this.slackId + '/' + this.date;
+        this.fire = new Firebase(
+            fireBaseRefUrl);
+            //process.env.firebaseRoot);
+
+        console.log("new Knowledge ("+ fireBaseRefUrl +"): " );
         console.log(this);
     }
 
