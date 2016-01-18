@@ -34,7 +34,7 @@ module.exports = class HappyKnowledge {
 
     getJSON(){
         var _json = {};
-        _json.id          = this.id;
+        //_json.id          = this.id;
         _json.user        = this.user;
         _json.slackId     = this.slackId;
         _json.date        = this.date;
