@@ -4,71 +4,28 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Firebase = require();
-
-var Podio = require('./Podio.js');
-var podio = new Podio();
-var _map = {
-    'title': "titel",
-    'slackId': "slackId",
-    'date': "datum",
-    'happydex': "happydex"
-};
+var Firebase = require('firebase');
 
 module.exports = function () {
-    _createClass(HappyKnowledge, null, [{
-        key: 'getAppId',
-        value: function getAppId() {
-            return process.env.podioHappyKnowledgeAppId;
-        }
-    }]);
-
-    function HappyKnowledge(title, slackId, date, happydex, id) {
+    function HappyKnowledge(user, slackId, date, happydex, id) {
         _classCallCheck(this, HappyKnowledge);
 
         this.id = id;
-        this.title = title;
+        this.user = user;
         this.slackId = slackId;
         this.date = date;
         this.happydex = happydex;
-        this.fire = new Firebase(process.env.firebaseRoot + '/' + title + '/' + date);
+        this.fire = new Firebase(process.env.firebaseRoot + '/' + this.slackId + '/' + this.date);
     }
 
     _createClass(HappyKnowledge, [{
         key: 'write',
         value: function write() {
-            var _this = this;
-
-            console.log('will try to write data to podio');
-            podio.action(function () {
-                return podio.podio.request('post', '/item/', JSON.stringify(_this.map()));
-            }, function (responseData) {
-                console.log('podio responses:');
-                console.log(responseData);
-                console.log(JSON.stringify(responseData));
-            });
-        }
-    }, {
-        key: 'map',
-        value: function map() {
-            return HappyKnowledge.map(this);
+            this.fire.set(JSON.stringify(this));
         }
     }], [{
         key: 'get',
-        value: function get(id, _callback) {
-            podio.request('get', '/item/' + id, null, function (responseData) {
-                _callback(new HappyKnowledge(responseData[_map['title']], responseData[_map['slackId']], responseData[_map['date']], responseData[_map['happydex']]));
-            });
-        }
-    }, {
-        key: 'map',
-        value: function map(knowledge) {
-            var mapped = {};
-            for (var key in _map) {
-                mapped[_map[key]] = this[key];
-            }
-            return mapped;
-        }
+        value: function get(slackId, date, _callback) {}
     }]);
 
     return HappyKnowledge;
