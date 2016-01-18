@@ -1,6 +1,7 @@
 "use strict";
 
-var podio = require('./Podio.js');
+var Podio = require('./Podio.js');
+var podio = Podio();
 var map = {
     'title'    : "titel",
     'slackId'  : "slackId",
@@ -19,6 +20,8 @@ module.exports = class HappyKnowledge {
         this.slackId  = slackId;
         this.date     = date;
         this.happydex = happydex;
+
+
     }
 
     static get(id, _callback){

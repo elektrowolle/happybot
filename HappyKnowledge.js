@@ -4,7 +4,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var podio = require('./Podio.js');
+var Podio = require('./Podio.js');
+var podio = Podio();
 var _map = {
     'title': "titel",
     'slackId': "slackId",
