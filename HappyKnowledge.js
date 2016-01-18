@@ -21,7 +21,19 @@ module.exports = function () {
     _createClass(HappyKnowledge, [{
         key: 'write',
         value: function write() {
-            this.fire.set(JSON.stringify(this));
+            this.fire.set(JSON.stringify(this.getJSON()));
+        }
+    }, {
+        key: 'getJSON',
+        value: function getJSON() {
+            var _json = {};
+            _json.id = this.id;
+            _json.user = this.user;
+            _json.slackId = this.slackId;
+            _json.date = this.date;
+            _json.happydex = this.happydex;
+
+            return JSON.stringify(_json);
         }
     }], [{
         key: 'get',
