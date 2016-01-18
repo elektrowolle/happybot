@@ -21,7 +21,8 @@ module.exports = function () {
     _createClass(HappyKnowledge, [{
         key: 'write',
         value: function write() {
-            console.log("try to save Happyknowledget");
+            console.log("try to save Happyknowledge");
+
             this.fire.set(JSON.stringify(this.getJSON()), function (response) {
                 console.log("Fire response: ");
                 console.log(response);
