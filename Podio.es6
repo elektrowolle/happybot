@@ -24,8 +24,8 @@ module.exports = class PodioInstance{
         var $this = this;
         podio.isAuthenticated().then(function () {
             console.log('podio is connected');
-            return request();
             console.log('request was successful');
+            return request();
         }).then(response)
         .catch(function (err) {
             console.log('No podio connection. Try to authenticate.' );
