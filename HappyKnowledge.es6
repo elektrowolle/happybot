@@ -22,10 +22,11 @@ module.exports = class HappyKnowledge {
     }
 
     write(){
+        console.log("try to save Happyknowledget");
         this.fire.set(JSON.stringify(this.getJSON()),
             (response)=>{
-                conole.log("Fire response: ");
-                conole.log(response);
+                console.log("Fire response: ");
+                console.log(response);
             }
         );
     }
