@@ -31,8 +31,12 @@ module.exports = function () {
             podio.isAuthenticated().then(function () {
                 console.log('podio is connected');
                 return request();
+                console.log('request was successful');
             }).then(response).catch(function (err) {
                 console.log('No podio connection. Try to authenticate.');
+                console.log(err);
+                console.log(JSON.stringify(err));
+
                 podio.authenticateWithCredentials(process.env.podioUsername, process.env.podioPassword, function () {
                     $this.action(request, response);
                 });
