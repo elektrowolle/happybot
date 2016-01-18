@@ -22,6 +22,7 @@ module.exports = function () {
         key: 'write',
         value: function write() {
             this.fire.set(JSON.stringify(this.getJSON()), function (response) {
+                conole.log("Fire response: ");
                 conole.log(response);
             });
         }
