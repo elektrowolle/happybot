@@ -1,5 +1,7 @@
 "use strict";
 
+var Firebase = require()
+
 var Podio = require('./Podio.js');
 var podio = new Podio();
 var map = {
@@ -12,15 +14,17 @@ var map = {
 module.exports = class HappyKnowledge {
 
 
-    static getAppId(){return env.podioHappyKnowledgeAppId;}
+    static getAppId(){return process.env.podioHappyKnowledgeAppId;}
 
 
     constructor(title,slackId,date,happydex, id){
-        this.id       = id;
-        this.title    = title;
-        this.slackId  = slackId;
-        this.date     = date;
-        this.happydex = happydex;
+        this.id          = id;
+        this.title       = title;
+        this.slackId     = slackId;
+        this.date        = date;
+        this.happydex    = happydex;
+        this.fire        = new Firebase(
+            process.env.firebaseRoot + '/' + title + '/' + date);
     }
 
     static get(id, _callback){

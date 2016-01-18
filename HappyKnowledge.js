@@ -4,6 +4,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var Firebase = require();
+
 var Podio = require('./Podio.js');
 var podio = new Podio();
 var _map = {
@@ -17,7 +19,7 @@ module.exports = function () {
     _createClass(HappyKnowledge, null, [{
         key: 'getAppId',
         value: function getAppId() {
-            return env.podioHappyKnowledgeAppId;
+            return process.env.podioHappyKnowledgeAppId;
         }
     }]);
 
@@ -29,6 +31,7 @@ module.exports = function () {
         this.slackId = slackId;
         this.date = date;
         this.happydex = happydex;
+        this.fire = new Firebase(process.env.firebaseRoot + '/' + title + '/' + date);
     }
 
     _createClass(HappyKnowledge, [{
