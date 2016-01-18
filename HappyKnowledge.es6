@@ -37,7 +37,7 @@ module.exports = class HappyKnowledge {
 
     write(){
         console.log('will try to write data to podio');
-        podio.action(podio.podio.request('post', '/item/', JSON.stringify(this.map())), (responseData)=> {
+        podio.action(()=>{return podio.podio.request('post', '/item/', JSON.stringify(this.map()))}, (responseData)=> {
             console.log('podio responses:');
             console.log(responseData);
             console.log(JSON.stringify(responseData));
