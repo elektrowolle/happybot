@@ -23,9 +23,14 @@ module.exports = function () {
         value: function write() {
             console.log("try to save Happyknowledge");
 
-            this.fire.set(this.getJSON(), function (response) {
-                console.log("Fire response: ");
-                console.log(response);
+            //this.fire.
+
+            this.fire.set(this.getJSON(), function (error) {
+                if (error) {
+                    console.log("Data could not be saved." + error);
+                } else {
+                    console.log("Data saved successfully.");
+                }
             });
         }
     }, {

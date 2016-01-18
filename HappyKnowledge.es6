@@ -24,10 +24,15 @@ module.exports = class HappyKnowledge {
     write(){
         console.log("try to save Happyknowledge");
 
+        //this.fire.
+
         this.fire.set(this.getJSON(),
-            (response)=>{
-                console.log("Fire response: ");
-                console.log(response);
+            (error)=>{
+                if (error) {
+                    console.log("Data could not be saved." + error);
+                } else {
+                    console.log("Data saved successfully.");
+                }
             }
         );
     }
