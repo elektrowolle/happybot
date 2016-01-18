@@ -28,8 +28,9 @@ module.exports = function () {
             if (retry === undefined) {
                 retry = 1;
             }
-            if (retry === 4) {
+            if (retry >= 4) {
                 console.log('too many approaches');
+                return;
             }
             //var authCode = request.query.code;
             //var errorCode = request.query.error;

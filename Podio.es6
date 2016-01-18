@@ -22,7 +22,7 @@ module.exports = class PodioInstance{
         if(retry === undefined) {
             retry = 1;
         }
-        if(retry === 4){
+        if(retry >= 4){
             console.log('too many approaches');
             return;
         }
