@@ -18,7 +18,14 @@ module.exports = class PodioInstance{
 
 
 
-    action(request, response) {
+    action(request, response, retry) {
+        if(retry === undefined) {
+            retry = 1;
+        }
+        if(retry === 4){
+            console.log('too many approaches');
+            return;
+        }
         //var authCode = request.query.code;
         //var errorCode = request.query.error;
         var $this = this;
@@ -36,7 +43,7 @@ module.exports = class PodioInstance{
             process.env.podioUsername,
             process.env.podioPassword,
             function() {
-                $this.action(request, response);
+                $this.action(request, response, retry + 1);
             });
         });
     }

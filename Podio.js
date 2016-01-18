@@ -24,7 +24,13 @@ module.exports = function () {
 
     _createClass(PodioInstance, [{
         key: 'action',
-        value: function action(request, response) {
+        value: function action(request, response, retry) {
+            if (retry === undefined) {
+                retry = 1;
+            }
+            if (retry === 4) {
+                console.log('too many approaches');
+            }
             //var authCode = request.query.code;
             //var errorCode = request.query.error;
             var $this = this;
@@ -38,7 +44,7 @@ module.exports = function () {
                 console.log(JSON.stringify(err));
 
                 podio.authenticateWithCredentials(process.env.podioUsername, process.env.podioPassword, function () {
-                    $this.action(request, response);
+                    $this.action(request, response, retry + 1);
                 });
             });
         }
