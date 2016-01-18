@@ -19,6 +19,8 @@ module.exports = class PodioInstance{
 
 
     action(request, response, retry) {
+        console.log(podio);
+        console.log(request);
         if(retry === undefined) {
             retry = 1;
         }
@@ -31,9 +33,10 @@ module.exports = class PodioInstance{
         var $this = this;
         podio.isAuthenticated().then(function () {
             console.log('podio is connected');
-            console.log('request was successful');
             return request();
-        }).then(response)
+        }).then(response).then(()=>{
+            console.log('request was successful');
+        })
         .catch(function (err) {
             console.log('No podio connection. Try to authenticate.' );
             console.log(err);
@@ -47,7 +50,7 @@ module.exports = class PodioInstance{
             });
         });
     }
-}
+};
 
 //var p = new PodioInstance();
 //p.action(()=>{return p.podio.request('GET', '/apps/')}, (response)=>{console.log(response)});

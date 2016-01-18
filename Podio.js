@@ -25,6 +25,8 @@ module.exports = function () {
     _createClass(PodioInstance, [{
         key: 'action',
         value: function action(request, response, retry) {
+            console.log(podio);
+            console.log(request);
             if (retry === undefined) {
                 retry = 1;
             }
@@ -37,9 +39,10 @@ module.exports = function () {
             var $this = this;
             podio.isAuthenticated().then(function () {
                 console.log('podio is connected');
-                console.log('request was successful');
                 return request();
-            }).then(response).catch(function (err) {
+            }).then(response).then(function () {
+                console.log('request was successful');
+            }).catch(function (err) {
                 console.log('No podio connection. Try to authenticate.');
                 console.log(err);
                 console.log(JSON.stringify(err));
