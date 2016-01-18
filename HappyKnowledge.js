@@ -34,7 +34,7 @@ module.exports = function () {
         key: 'write',
         value: function write() {
             console.log('will try to write data to podio');
-            podio.request('post', '/item/', JSON.stringify(this.map()), function (responseData) {
+            podio.action(podio.podio.request('post', '/item/', JSON.stringify(this.map())), function (responseData) {
                 console.log('podio responses:');
                 console.log(responseData);
                 console.log(JSON.stringify(responseData));
@@ -66,4 +66,3 @@ module.exports = function () {
     return HappyKnowledge;
 }();
 
-//# sourceMappingURL=HappyKnowledge.js.map
