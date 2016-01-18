@@ -14,7 +14,11 @@ module.exports = class HappyKnowledge {
         this.date        = date;
         this.happydex    = happydex;
         this.fire        = new Firebase(
-            process.env.firebaseRoot + '/' + this.slackId + '/' + this.date);
+            //process.env.firebaseRoot + '/' + this.slackId + '/' + this.date);
+            process.env.firebaseRoot);
+
+        console.log("new Knowledge: " );
+        console.log(this);
     }
 
     static get(slackId, date, _callback){

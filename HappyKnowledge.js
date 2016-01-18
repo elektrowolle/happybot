@@ -15,11 +15,16 @@ module.exports = function () {
         this.slackId = slackId;
         this.date = date;
         this.happydex = happydex;
-        this.fire = new Firebase(process.env.firebaseRoot + '/' + this.slackId + '/' + this.date);
+        this.fire = new Firebase(
+        //process.env.firebaseRoot + '/' + this.slackId + '/' + this.date);
+        process.env.firebaseRoot);
+
+        console.log("new Knowledge: ");
+        console.log(this);
     }
 
     _createClass(HappyKnowledge, [{
-        key: 'write',
+        key: "write",
         value: function write() {
             //this.fire.
 
@@ -36,7 +41,7 @@ module.exports = function () {
             });
         }
     }, {
-        key: 'getJSON',
+        key: "getJSON",
         value: function getJSON() {
             var _json = {};
             //_json.id          = this.id;
@@ -49,7 +54,7 @@ module.exports = function () {
             return _json;
         }
     }], [{
-        key: 'get',
+        key: "get",
         value: function get(slackId, date, _callback) {}
     }]);
 
