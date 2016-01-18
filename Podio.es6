@@ -25,7 +25,7 @@ module.exports = class PodioInstance{
         podio.isAuthenticated().then(function () {
             console.log('podio is connected');
             return request();
-        }).then(response(response))
+        }).then(response(responseData))
         .catch(function (err) {
             podio.authenticateWithCredentials(
             process.env.podioUsername,
