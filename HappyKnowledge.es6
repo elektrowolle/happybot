@@ -40,7 +40,8 @@ module.exports = class HappyKnowledge {
         _json.date        = this.date;
         _json.happydex    = this.happydex;
 
-        return JSON.stringify(_json);
+        //return JSON.stringify(_json);
+        return (_json);
     }
 
 

@@ -23,7 +23,7 @@ module.exports = function () {
         value: function write() {
             console.log("try to save Happyknowledge");
 
-            this.fire.set(JSON.stringify(this.getJSON()), function (response) {
+            this.fire.set(this, function (response) {
                 console.log("Fire response: ");
                 console.log(response);
             });
@@ -38,7 +38,8 @@ module.exports = function () {
             _json.date = this.date;
             _json.happydex = this.happydex;
 
-            return JSON.stringify(_json);
+            //return JSON.stringify(_json);
+            return _json;
         }
     }], [{
         key: 'get',
