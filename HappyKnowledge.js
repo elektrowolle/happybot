@@ -33,7 +33,7 @@ module.exports = function () {
 
             console.log("try to save Happyknowledge");
             console.log(json);
-            this.fire.push({ data: json }, function (error) {
+            this.fire.set(json, function (error) {
                 if (error) {
                     console.log("Data could not be saved." + error);
                 } else {
