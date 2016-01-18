@@ -28,7 +28,7 @@ module.exports = class HappyKnowledge {
 
         console.log("try to save Happyknowledge");
         console.log(json);
-        this.fire.set({data:json},
+        this.fire.push({data:json},
             (error)=>{
                 if (error) {
                     console.log("Data could not be saved." + error);

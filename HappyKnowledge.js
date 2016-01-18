@@ -27,7 +27,7 @@ module.exports = function () {
 
             console.log("try to save Happyknowledge");
             console.log(json);
-            this.fire.set({ data: json }, function (error) {
+            this.fire.push({ data: json }, function (error) {
                 if (error) {
                     console.log("Data could not be saved." + error);
                 } else {
