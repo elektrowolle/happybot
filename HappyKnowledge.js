@@ -21,11 +21,13 @@ module.exports = function () {
     _createClass(HappyKnowledge, [{
         key: 'write',
         value: function write() {
-            console.log("try to save Happyknowledge");
-
             //this.fire.
 
-            this.fire.set(this.getJSON(), function (error) {
+            var json = this.getJSON();
+
+            console.log("try to save Happyknowledge");
+            console.log(json);
+            this.fire.set({ data: json }, function (error) {
                 if (error) {
                     console.log("Data could not be saved." + error);
                 } else {
