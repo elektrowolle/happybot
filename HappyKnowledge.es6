@@ -24,7 +24,7 @@ module.exports = class HappyKnowledge {
     write(){
         console.log("try to save Happyknowledge");
 
-        this.fire.set(this,
+        this.fire.set(this.getJSON(),
             (response)=>{
                 console.log("Fire response: ");
                 console.log(response);
