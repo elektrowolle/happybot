@@ -4,3 +4,4 @@ Dockerfile
 docker-compose.yml
 .idea/
 node_modules/
+public/components/
