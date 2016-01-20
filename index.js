@@ -16,6 +16,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/slackAuth', function (request, response) {
+  console.log("try to authenticate Slack");
   var code = request.query.code;
   if(typeof(token) != "undefined") {
     requestify.post('', {
