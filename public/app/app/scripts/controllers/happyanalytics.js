@@ -40,6 +40,7 @@ var HappyKnowledge = function HappyKnowledge(user, slackId, date, happydex, id) 
 ;
 
 angular.module('appApp').controller('HappyanalyticsCtrl', function ($scope, $firebaseObject, $filter) {
+
   var ref = new Firebase("https://happybotixds.firebaseio.com/happy/");
 
   var fbResponse = $firebaseObject(ref);
