@@ -20,19 +20,25 @@ angular.module('appApp')
 
     var users = function(){return _users};
 
+    var config = {
+      "client": "2565956765.18288896999",
+      "authParms":  {
+        "scope"       : ["read"],
+        "redirect_uri": "https://happybotixds.herokuapp.com/#/happyAnalytics",
+
+      },
+    };
 
     if(typeof(token) == "undefined"){
-      var config = {
-        "client": "2565956765.18288896999",
-        "authParms":  {
-          "scope"       : ["read"],
-          "redirect_uri": "https://happybotixds.herokuapp.com/#/happyAnalytics",
-
-        },
-      };
-
       slackSvc.authorize(config.client, config.authParms);
 
+    }else{
+      slackSvc.oauth.access(config.client, clientSecret, code, function (response) {
+        if(response.ok){
+          //optional : preload you token for further requests
+          slackSvc.InitToken(response.access_token);
+        }
+      });
     }
 
 
