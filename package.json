@@ -13,6 +13,9 @@
     "podio-js": "^1.4.2",
     "slack-client": "^1.5.1"
   },
+  "scripts": {
+    "postinstall": "cd public/app; ../../node_modules/bower/bin/bower install ./public/app"
+  },
   "engines": {
     "node": "0.12.7"
   },
