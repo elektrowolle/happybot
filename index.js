@@ -19,7 +19,7 @@ app.get('/slackAuth', function (request, response) {
   console.log("try to authenticate Slack");
   var code = request.query.code;
   if(typeof(token) != "undefined") {
-    requestify.post('', {
+    requestify.post('https://slack.com/api/oauth.access', {
       'client_id': env.process.SlackClient,
       'client_secret': env.process.SlackSecret,
       'code': code
