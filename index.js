@@ -21,11 +21,17 @@ app.get('/slackAuth', function (request, response) {
   var code = request.query.code;
   if(typeof(code) != "undefined") {
     console.log("start request");
-    requestify.post('https://slack.com/api/oauth.access', {
-      'client_id': process.env.SlackClient,
+    var slackAuthConfig = {
+      'client_id'    : process.env.SlackClient,
       'client_secret': process.env.SlackSecret,
-      'code': code
-    }).then(function (slackResponse) {
+      'code'         : code
+      };
+
+    console.log('payload: ');
+    console.log(slackAuthConfig);
+
+      requestify.post('https://slack.com/api/oauth.access', slackAuthConfig)
+          .then(function (slackResponse) {
       console.log(slackResponse);
     });
   }
