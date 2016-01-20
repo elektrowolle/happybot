@@ -3,19 +3,18 @@
   "version": "0.1.5",
   "description": "A sample Node.js app using Express 4",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
+  "scripts": {},
   "dependencies": {
+    "bower": "^1.7.2",
     "ejs": "2.3.3",
     "express": "4.13.3",
     "firebase": "^2.3.2",
     "podio-js": "^1.4.2",
     "slack-client": "^1.5.1"
   },
-  "scripts": {
-    "postinstall": "cd public/app; ../../node_modules/bower/bin/bower install ./public/app"
-  },
+  "scripts":{
+    "postinstall": "cd public/app; ../../node_modules/bower/bin/bower install "
+  }
   "engines": {
     "node": "0.12.7"
   },
