@@ -1,0 +1,32 @@
+{
+  "name": "happybot",
+  "description": "A sample Node.js app using Express 4",
+  "main": "index.js",
+  "authors": [
+    "Benjamin Skirlo <benjamin.skirlo@ixds.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~1.0.3",
+    "angular2-build": "~2.0.0-alpha.34",
+    "bootstrap": "~3.3.6",
+    "systemjs": "*",
+    "angular": "~2.0.0-alpha.34"
+  }
+}
