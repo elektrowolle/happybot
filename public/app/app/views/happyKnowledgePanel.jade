@@ -1,0 +1,8 @@
+.panel.panel-default
+  .panel-heading
+    | {{user.name || user}}
+  .panel-body
+    ul.list-group
+      li.list-group-item(
+        ng-repeat="(date, data) in knowledge")
+        | {{date | date}}: {{data.happydex}}

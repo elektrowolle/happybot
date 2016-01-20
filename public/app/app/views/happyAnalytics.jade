@@ -1,5 +1,17 @@
 p Hallo
 pre {{data | json}}
+.container.col-md-6
+  happy-knowledge-panel(
+    ng-repeat="(user, happyKnowledge) in data"
+    user="user"
+    knowledge="happyKnowledge"
+    )
+ .container.col-md-6
+   .panel.panel-default
+     .panel-heading
+       | Graph
+     .panel-body
+       | Placeholder
 
-ul
-  li(ng-repeat="date in data") {{date | json}}
+
+p {{'a' | slackName}}
