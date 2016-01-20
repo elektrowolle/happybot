@@ -21,7 +21,7 @@ angular.module('appApp')
       "client": "2565956765.18288896999",
       "authParms":  {
         "scope"       : ["read"],
-        "redirect_uri": "https://happybotixds.herokuapp.com/#/happybotAnalytics",
+        "redirect_uri": "https://happybotixds.herokuapp.com/#/happyAnalytics",
 
       },
     };
