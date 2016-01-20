@@ -22,8 +22,8 @@ app.get('/slackAuth', function (request, response) {
   if(typeof(code) != "undefined") {
     console.log("start request");
     requestify.post('https://slack.com/api/oauth.access', {
-      'client_id': env.process.SlackClient,
-      'client_secret': env.process.SlackSecret,
+      'client_id': process.env.SlackClient,
+      'client_secret': process.env.SlackSecret,
       'code': code
     }).then(function (slackResponse) {
       console.log(slackResponse);
