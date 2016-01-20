@@ -16,7 +16,7 @@ angular.module('appApp')
 
     _users = {};
 
-    token = $location.search()['code'];
+    token = $location.search()['token'];
 
     var users = function(){return _users};
 
@@ -33,12 +33,7 @@ angular.module('appApp')
       slackSvc.authorize(config.client, config.authParms);
 
     }else{
-      slackSvc.oauth.access(config.client, clientSecret, code, function (response) {
-        if(response.ok){
-          //optional : preload you token for further requests
-          slackSvc.InitToken(response.access_token);
-        }
-      });
+
     }
 
 
