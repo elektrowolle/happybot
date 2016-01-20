@@ -22,10 +22,11 @@ app.get('/slackAuth', function (request, response) {
   if(typeof(code) != "undefined") {
     console.log("start request");
     var slackAuthConfig = {
-      'client_id'    : process.env.SlackClient,
-      'client_secret': process.env.SlackSecret,
-      'code'         : code
-      };
+      client_id    : process.env.SlackClient,
+      client_secret: process.env.SlackSecret,
+      code         : code,
+      redirect_uri : 'https://happybotixds.herokuapp.com/slackAuth',
+    };
 
     console.log('payload: ');
     console.log(slackAuthConfig);
