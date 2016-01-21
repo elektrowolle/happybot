@@ -40,14 +40,13 @@ var HappyKnowledge = function HappyKnowledge(user, slackId, date, happydex, id) 
 ;
 
 angular.module('appApp').controller('HappyanalyticsCtrl', function ($scope, $firebaseObject, $filter) {
-  $scope.chartData = {};
-
   var ref = new Firebase("https://happybotixds.firebaseio.com/happy/");
 
   var fbResponse = $firebaseObject(ref);
   $scope.chartData = [];
 
   $scope.data = fbResponse;
+
   $scope.chartOptions = {
     chart: {
       type: 'stackedAreaChart',
