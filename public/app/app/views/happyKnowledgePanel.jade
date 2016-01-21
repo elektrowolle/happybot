@@ -1,6 +1,6 @@
 .panel.panel-default
   .panel-heading
-    | {{user | slackName || user}}
+    | {{(user | slackName) || user}}
   .panel-body
     ul.list-group
       li.list-group-item(
