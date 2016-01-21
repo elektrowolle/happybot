@@ -34,15 +34,20 @@ app.get('/slackAuth', function (request, response) {
     console.log(slackAuthConfig);
 
       requestify
-          .get('https://slack.com/api/oauth.access', slackAuthConfig)
-          .then(function (slackResponse) {
-            console.log(slackResponse);
-            if(slackResponse.body.ok){
-              response.redirect(
-                  "https://happybotixds.herokuapp.com/#/happyAnalytics?token=" +
-                  slackResponse.body.access_token);
-            }
-          });
+        .get('https://slack.com/api/oauth.access', slackAuthConfig)
+        .then(function (slackResponse) {
+          console.log(slackResponse);
+          if(slackResponse.body.ok){
+            console.log("authenticated");
+            response.redirect(
+                "https://happybotixds.herokuapp.com/#/happyAnalytics?token=" +
+                slackResponse.body.access_token
+            );
+          }else{
+            console.log("couldn't authenticate");
+            response.redirect("https://happybotixds.herokuapp.com/");
+          }
+        });
   }
 
 
