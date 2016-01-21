@@ -31,7 +31,7 @@ app.get('/slackAuth', function (request, response) {
     console.log('payload: ');
     console.log(slackAuthConfig);
 
-      requestify.post('https://slack.com/api/oauth.access', slackAuthConfig)
+      requestify.get('https://slack.com/api/oauth.access', slackAuthConfig)
           .then(function (slackResponse) {
       console.log(slackResponse);
     });
