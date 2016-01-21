@@ -48,7 +48,7 @@ angular.module('appApp')
 
     var fbResponse = $firebaseObject(ref);
     $scope.data = fbResponse;
-    $scope.chartOption = {
+    $scope.chartOptions = {
       chart: {
         type: 'stackedAreaChart',
         height: 450,

@@ -9,11 +9,7 @@
      .panel-heading
        | Graph
      .panel-body
-       nvd3-stacked-area-chart(
+       nvd3(
          data="chartData"
-         id="exampleId"
-         showXAxis="true"
-         showYAxis="true"
-         width="550"
-         height="350"
+         options="chartOptions"
        )
