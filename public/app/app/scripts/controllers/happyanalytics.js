@@ -87,7 +87,7 @@ angular.module('appApp').controller('HappyanalyticsCtrl', function ($scope, $fir
   var ref = new Firebase("https://happybotixds.firebaseio.com/happy/");
   var fbResponse = $firebaseObject(ref);
 
-  $scope.chartData = [];
+  $scope.chartData = [1, 2, 3, 4, 5, 6];
 
   $scope.data = fbResponse;
   $scope.chartOptions = chartOptions;
