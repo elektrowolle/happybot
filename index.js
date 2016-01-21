@@ -37,6 +37,8 @@ app.get('/slackAuth', function (request, response) {
         .get('https://slack.com/api/oauth.access', slackAuthConfig)
         .then(function (slackResponse) {
           console.log(slackResponse);
+          console.log("body: " + slackResponse.body);
+          console.log("body.ok: " + slackResponse.body.ok);
           if(slackResponse.body.ok){
             console.log("authenticated");
             response.redirect(
