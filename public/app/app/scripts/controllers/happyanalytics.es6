@@ -92,6 +92,9 @@ angular.module('appApp')
     $scope.data.$watch(()=>{
       $scope.chartData = [];
       for(var user in $scope.data){
+        if(user.includes('$'))
+          continue;
+
         var chartDate = {};
         chartDate.key = user;
         chartDate.values = [];
