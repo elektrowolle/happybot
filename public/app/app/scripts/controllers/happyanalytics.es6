@@ -90,7 +90,7 @@ angular.module('appApp')
     };
 
     $scope.data.$watch(()=>{
-      $scope.chartData = [];
+      //$scope.chartData = [];
       for(var user in $scope.data){
         if(user.indexOf('\$') == -1) {
           continue;
