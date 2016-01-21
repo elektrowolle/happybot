@@ -94,7 +94,9 @@ angular.module('appApp').controller('HappyanalyticsCtrl', function ($scope, $fir
   $scope.data.$watch(function () {
     $scope.chartData = [];
     for (var user in $scope.data) {
-      if (user.includes('\$')) continue;
+      if (user.indexOf('\$') == -1) {
+        continue;
+      }
 
       var chartDate = {};
       chartDate.key = user;
