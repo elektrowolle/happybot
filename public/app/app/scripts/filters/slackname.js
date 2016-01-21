@@ -22,6 +22,7 @@ angular.module('appApp')
 
     var config = {
       "client": "2565956765.18288896999",
+
       "authParms":  {
         "scope"       : [
           "identify",
