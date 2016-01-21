@@ -5,7 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-@import url(../../bower_components/nvd3/nv.d3.css);
+@import url(../../bower_components/nvd3/build/nv.d3.min.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -5863,7 +5863,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px; }
+    max-width: 1920px; }
 
   /* Remove the padding we set earlier */
   .header,

@@ -39,76 +39,71 @@ var HappyKnowledge = function HappyKnowledge(user, slackId, date, happydex, id) 
 
 ;
 
-var chartOptions = {
-  chart: {
-    type: 'stackedAreaChart',
-    height: 450,
-    margin: {
-      top: 20,
-      right: 20,
-      bottom: 30,
-      left: 40
-    },
-    x: function x(d) {
-      return d[0];
-    },
-    y: function y(d) {
-      return d[1];
-    },
-    useVoronoi: false,
-    clipEdge: true,
-    duration: 100,
-    useInteractiveGuideline: true,
-    xAxis: {
-      showMaxMin: false,
-      tickFormat: function tickFormat(d) {
-        return d3.time.format('%x')(new Date(d));
-      }
-    },
-    yAxis: {
-      tickFormat: function tickFormat(d) {
-        return d3.format(',.2f')(d);
-      }
-    },
-    zoom: {
-      enabled: true,
-      scaleExtent: [1, 10],
-      useFixedDomain: false,
-      useNiceScale: false,
-      horizontalOff: false,
-      verticalOff: true,
-      unzoomEventType: 'dblclick.zoom'
-    }
-  }
-};
-
 angular.module('appApp').controller('HappyanalyticsCtrl', function ($scope, $firebaseObject, $filter) {
 
   var ref = new Firebase("https://happybotixds.firebaseio.com/happy/");
   var fbResponse = $firebaseObject(ref);
 
-  $scope.chartData = [1, 2, 3, 4, 5, 6];
+  $scope.chartData = [];
 
   $scope.data = fbResponse;
-  $scope.chartOptions = chartOptions;
+  $scope.chartOptions = {
+    chart: {
+      type: 'lineChart',
+      height: 450,
+      margin: {
+        top: 20,
+        right: 20,
+        bottom: 30,
+        left: 40
+      },
+      useVoronoi: false,
+      clipEdge: true,
+      duration: 100,
+      useInteractiveGuideline: true,
+      xAxis: {
+        ticks: 5
+      },
+      x: function x(d) {
+        return d[0];
+      },
+      y: function y(d) {
+        return d[1];
+      }
 
+    }
+  };
+  //zoom: {
+  //  enabled: true,
+  //  scaleExtent: [1, 10],
+  //  //useFixedDomain: false,
+  //  useNiceScale: false,
+  //  horizontalOff: true,
+  //  verticalOff: false,
+  //  unzoomEventType: 'dblclick.zoom'
+  //}
   var calculateChartData = function calculateChartData() {
+    $scope.chartData = [];
     for (var user in $scope.data) {
-      //if(user.indexOf('\$') == -1) {
-      //  continue;
-      //}
-
+      if (user.indexOf('\$') != -1 || user.indexOf('forEach') != -1) {
+        continue;
+      }
       var chartDate = {};
+
       chartDate.key = user;
       chartDate.values = [];
       for (var date in $scope.data[user]) {
-        chartDate.values.push([date, $scope.data[user][date].happydex]);
+        chartDate.values.push([parseInt(date), $scope.data[user][date].happydex]);
       }
-      $scope.chartData.push = chartDate;
+      console.log("push new date: ");
+      console.log(chartDate);
+      console.log($scope.chartData);
+      $scope.chartData.push(chartDate);
     }
   };
-
   calculateChartData();
+
+  $scope.chartReady = calculateChartData();
 
   $scope.data.$watch(function () {
     //$scope.chartData = [];
