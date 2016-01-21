@@ -33,10 +33,16 @@ app.get('/slackAuth', function (request, response) {
     console.log('payload: ');
     console.log(slackAuthConfig);
 
-      requestify.get('https://slack.com/api/oauth.access', slackAuthConfig)
+      requestify
+          .get('https://slack.com/api/oauth.access', slackAuthConfig)
           .then(function (slackResponse) {
-      console.log(slackResponse);
-    });
+            console.log(slackResponse);
+            if(slackResponse.body.ok){
+              response.redirect(
+                  "https://happybotixds.herokuapp.com/#/happyAnalytics?token=" +
+                  slackResponse.body.access_token);
+            }
+          });
   }
 
 
