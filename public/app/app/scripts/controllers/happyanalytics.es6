@@ -92,7 +92,7 @@ angular.module('appApp')
     $scope.data.$watch(()=>{
       $scope.chartData = [];
       for(var user in $scope.data){
-        if(user.includes('$'))
+        if(user.includes('\$'))
           continue;
 
         var chartDate = {};
