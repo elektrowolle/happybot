@@ -39,10 +39,12 @@ angular.module('appApp')
 
     }else{
       slackSvc.InitToken(token);
-      var users = slackSvc.users.list().members;
-      users.map(function(user){
-        _users[user.id] = user.name;
+      slackSvc.users.list(function(memberList){
+        memberList.members.map(function(user){
+          _users[user.id] = user.name;
+        });
       });
+
     }
 
     console.log(_users);
