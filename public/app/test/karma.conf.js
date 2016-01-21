@@ -34,8 +34,7 @@ module.exports = function(config) {
       'bower_components/firebase/firebase.js',
       'bower_components/angularfire/dist/angularfire.js',
       'bower_components/d3/d3.js',
-      'bower_components/nvd3/nv.d3.js',
-      'bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js',
+      'bower_components/nvd3/build/nv.d3.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/slackapi-angularjs/build/ng-deg.slackapi.js',
       // endbower
