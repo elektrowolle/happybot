@@ -49,6 +49,7 @@ angular.module('appApp').controller('HappyanalyticsCtrl', function ($scope, $fir
   $scope.data.$watch(function () {
     for (var user in $scope.data) {
       $scope.chartData[user] = {};
+      $scope.chartData[user].values = [];
       for (var date in $scope.data[user]) {
         $scope.chartData[user].values.push([date, $scope.data[user][date].happydex]);
       }

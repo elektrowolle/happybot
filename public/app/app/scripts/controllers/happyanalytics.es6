@@ -51,6 +51,7 @@ angular.module('appApp')
     $scope.data.$watch(()=>{
       for(var user in $scope.data){
         $scope.chartData[user] = {};
+        $scope.chartData[user].values = [];
         for(var date in $scope.data[user]) {
           $scope.chartData[user].values.push([date, $scope.data[user][date].happydex]);
 

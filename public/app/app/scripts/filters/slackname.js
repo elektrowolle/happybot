@@ -16,7 +16,7 @@ angular.module('appApp')
 
     _users = {};
 
-    token = $location.search()['token'];
+    token = token || $location.search()['token'];
 
     var users = function(){return _users};
 
