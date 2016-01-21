@@ -1,5 +1,3 @@
-p Hallo
-pre {{data | json}}
 .container.col-md-6
   happy-knowledge-panel(
     ng-repeat="(user, happyKnowledge) in data"
@@ -11,8 +9,11 @@ pre {{data | json}}
      .panel-heading
        | Graph
      .panel-body
-       | Placeholder
-
-
-pre {{'location' | slackName}}
-//p halloo
+       nvd3-stacked-area-chart(
+         data="chartData"
+         id="exampleId"
+         showXAxis="true"
+         showYAxis="true"
+         width="550"
+         height="350"
+       )

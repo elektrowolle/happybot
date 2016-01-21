@@ -18,7 +18,7 @@ angular
     'ngTouch',
     'firebase',
     'Deg.SlackApi',
-    //'slackNameFilter',
+    'nvd3ChartDirectives',
   ])
   .config(function ($routeProvider) {
     $routeProvider

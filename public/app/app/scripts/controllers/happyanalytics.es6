@@ -42,6 +42,7 @@ angular.module('appApp')
     $filter
   )
   {
+    $scope.chartData = {};
 
     var ref = new Firebase("https://happybotixds.firebaseio.com/happy/");
 
@@ -49,7 +50,11 @@ angular.module('appApp')
     $scope.data = fbResponse;
     $scope.data.$watch(()=>{
       for(var user in $scope.data){
+        $scope.chartData[user] = {};
+        for(var date in $scope.data[user]) {
+          $scope.chartData[user].values.push([date, $scope.data[user][date].happydex]);
 
+        }
       }
     });
 

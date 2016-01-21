@@ -40,13 +40,19 @@ var HappyKnowledge = function HappyKnowledge(user, slackId, date, happydex, id) 
 ;
 
 angular.module('appApp').controller('HappyanalyticsCtrl', function ($scope, $firebaseObject, $filter) {
+  $scope.chartData = {};
 
   var ref = new Firebase("https://happybotixds.firebaseio.com/happy/");
 
   var fbResponse = $firebaseObject(ref);
   $scope.data = fbResponse;
   $scope.data.$watch(function () {
-    for (var user in $scope.data) {}
+    for (var user in $scope.data) {
+      $scope.chartData[user] = {};
+      for (var date in $scope.data[user]) {
+        $scope.chartData[user].values.push([date, $scope.data[user][date].happydex]);
+      }
+    }
   });
 });
 
