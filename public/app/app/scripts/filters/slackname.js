@@ -23,7 +23,12 @@ angular.module('appApp')
     var config = {
       "client": "2565956765.18288896999",
       "authParms":  {
-        "scope"       : ["read"],
+        "scope"       : [
+          "identify",
+          "channels:read",
+          "team:read",
+          "users:read"
+        ],
         "redirect_uri": "https://happybotixds.herokuapp.com/slackAuth",
 
       },
