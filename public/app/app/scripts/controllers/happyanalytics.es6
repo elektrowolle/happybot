@@ -47,6 +47,8 @@ angular.module('appApp')
     var ref = new Firebase("https://happybotixds.firebaseio.com/happy/");
 
     var fbResponse = $firebaseObject(ref);
+    $scope.chartData = [];
+
     $scope.data = fbResponse;
     $scope.chartOptions = {
       chart: {
