@@ -18,7 +18,7 @@ angular
     'ngTouch',
     'firebase',
     'Deg.SlackApi',
-    'nvd3ChartDirectives',
+    'nvd3',
   ])
   .config(function ($routeProvider) {
     $routeProvider

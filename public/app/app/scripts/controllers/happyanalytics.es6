@@ -49,13 +49,16 @@ angular.module('appApp')
     var fbResponse = $firebaseObject(ref);
     $scope.data = fbResponse;
     $scope.data.$watch(()=>{
+      $scope.chartData = [];
       for(var user in $scope.data){
-        $scope.chartData[user] = {};
-        $scope.chartData[user].values = [];
+        var chartDate = {};
+        chartDate.key = user;
+        chartDate.values = [];
         for(var date in $scope.data[user]) {
-          $scope.chartData[user].values.push([date, $scope.data[user][date].happydex]);
+          chartDate.values.push([date, $scope.data[user][date].happydex]);
 
         }
+        $scope.chartData.push = chartDate;
       }
     });
 
