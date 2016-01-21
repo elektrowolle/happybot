@@ -46,7 +46,7 @@ app.get('/slackAuth', function (request, response) {
             console.log("authenticated");
             response.redirect(
                 "https://happybotixds.herokuapp.com/#/happyAnalytics?token=" +
-                slackResponse.body.access_token
+                body.access_token
             );
           }else{
             console.log("couldn't authenticate");
