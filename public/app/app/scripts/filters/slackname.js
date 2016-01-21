@@ -38,16 +38,16 @@ angular.module('appApp')
       slackSvc.authorize(config.client, config.authParms);
 
     }else{
-
+      slackSvc.InitToken(token);
+      var users = slackSvc.users.list().members;
+      users.map(function(user){
+        _users[user.id] = user.name;
+      });
     }
-
-
-    _users = slackSvc.users.list();
-
 
     console.log(_users);
 
     return function (input) {
-      return $location.search();
+      return users()[input];
     };
   });

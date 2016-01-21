@@ -16,7 +16,30 @@ app.use(express.static(__dirname + '/public/app'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/slackAuth', function (request, response) {
+var getSlackToken = function (slackAuthConfig, response) {
+  requestify
+      .get('https://slack.com/api/oauth.access', slackAuthConfig)
+      .then(function (slackResponse) {
+                  console.log(slackResponse);
+
+                  var body = JSON.parse(slackResponse.body);
+
+                  console.log("body: " + body);
+                  console.log("body.ok: " + body.ok);
+                  if(body.ok){
+                    console.log("authenticated");
+                    response.redirect(
+                        "https://happybotixds.herokuapp.com/#/happyAnalytics?token=" +
+                        body.access_token
+                    );
+                  }else{
+                    console.log("couldn't authenticate");
+                    response.redirect("https://happybotixds.herokuapp.com/");
+                      }
+                  }
+      );
+};
+var authenticateSlackRequest = function (request, response) {
   console.log("try to authenticate Slack");
   var code = request.query.code;
   if(typeof(code) != "undefined") {
@@ -33,30 +56,12 @@ app.get('/slackAuth', function (request, response) {
     console.log('payload: ');
     console.log(slackAuthConfig);
 
-      requestify
-        .get('https://slack.com/api/oauth.access', slackAuthConfig)
-        .then(function (slackResponse) {
-          console.log(slackResponse);
-
-          var body = JSON.parse(slackResponse.body);
-
-          console.log("body: " + body);
-          console.log("body.ok: " + body.ok);
-          if(body.ok){
-            console.log("authenticated");
-            response.redirect(
-                "https://happybotixds.herokuapp.com/#/happyAnalytics?token=" +
-                body.access_token
-            );
-          }else{
-            console.log("couldn't authenticate");
-            response.redirect("https://happybotixds.herokuapp.com/");
-          }
-        });
+    getSlackToken(slackAuthConfig, response);
   }
 
 
-});
+};
+app.get('/slackAuth', authenticateSlackRequest);
 
 app.listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'));
