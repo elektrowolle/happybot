@@ -34,8 +34,8 @@ module.exports = function (_SlackConversation) {
     _createClass(HappinessConversation, [{
         key: 'onStart',
         value: function onStart() {
-            $b = new _browser2.default();
-            $this = this;
+            var $b = new _browser2.default();
+            var $this = this;
             this.channel.send("Let me have a look:");
             $b.browse('http://www.regenbogenfabrik.de/nl-speisen/news-speisen1.html', function (err, out) {
                 var weekday = new Date().getDay();

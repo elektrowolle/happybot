@@ -5,8 +5,8 @@ import Browser           from "browser"
 module.exports = class HappinessConversation extends SlackConversation{
 
     onStart(){
-        $b = new Browser();
-        $this = this;
+        var $b = new Browser();
+        var $this = this;
         this.channel.send("Let me have a look:");
         $b.browse('http://www.regenbogenfabrik.de/nl-speisen/news-speisen1.html', (err, out)=>{
             var weekday = (new Date()).getDay();
