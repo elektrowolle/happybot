@@ -28,7 +28,7 @@ module.exports = class HappinessConversation extends SlackConversation{
 
         $b.on("end", (err, out)=>{
             console.log(err);
-            console.log(out.result);
+            console.log(!out ? out : out.result);
             $this.done = true;
         })
 

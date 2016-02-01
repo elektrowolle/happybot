@@ -51,7 +51,7 @@ module.exports = function (_SlackConversation) {
 
             $b.on("end", function (err, out) {
                 console.log(err);
-                console.log(out.result);
+                console.log(!out ? out : out.result);
                 $this.done = true;
             });
 
