@@ -1,7 +1,8 @@
 var Slack = require('slack-client');
 //var happy = require('./HappyKnowledge');
-var Conversation = require('./SlackConversation.js');
-var HappinessConversation = require('./HappinessConversation.js');
+var Conversation           = require('./SlackConversation.js');
+var HappinessConversation  = require('./HappinessConversation.js');
+var RegenbogenConversation = require('./RegenbogenConversation.js');
 
 module.exports = (function () {
   var slackToken = process.env.SlackToken;
