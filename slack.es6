@@ -61,6 +61,10 @@ module.exports = (function () {
     slackConversation[info.message.user] = new HappinessConversation(slack, info.channel, info.user);
   });
 
+  slackHooks['Regenbogen'] = ((info)=>{
+    slackConversation[info.message.user] = new RegenbogenConversation(slack, info.channel, info.user);
+  });
+
   slack.on('error', function (err) {
     console.log('Error:' + err);
   });

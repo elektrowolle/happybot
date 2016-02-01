@@ -25,7 +25,7 @@ module.exports = class HappinessConversation extends SlackConversation{
 
             $this.channel.send($(selector[weekday]).html);
         });
-        
+
         $b.on("end", (err, out)=>{
             console.log(err);
             console.log(out.result);
